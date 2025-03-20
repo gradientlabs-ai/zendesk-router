@@ -1,5 +1,6 @@
+/* eslint-env node */
 module.exports = {
   testEnvironment: 'jsdom',
   collectCoverage: true,
-  collectCoverageFrom: ['src/**/*.js']
+  collectCoverageFrom: ['**/*.js']
 };

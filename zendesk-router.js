@@ -14,15 +14,15 @@
 (function () {
   const ZendeskRouter = {
     /**
-         * Initialize the router and load the appropriate Zendesk widget
-         * @param {Object} options - Configuration options
-         * @param {Object} options.keys - Zendesk widget keys
-         * @param {string} options.keys.default - Key for default widget
-         * @param {string} options.keys.gradientLabs - Key for gradient labs widget
-         * @param {number} options.percentageForGradientLabs - Percentage of users to route to gradient labs (0-100)
-         * @param {string} options.identifier - Unique user identifier for consistent routing
-         * @returns {Object} Result of the routing decision
-         */
+    * Initialize the router and load the appropriate Zendesk widget
+    * @param {Object} options - Configuration options
+    * @param {Object} options.keys - Zendesk widget keys
+    * @param {string} options.keys.default - Key for default widget
+    * @param {string} options.keys.gradientLabs - Key for gradient labs widget
+    * @param {number} options.percentageForGradientLabs - Percentage of users to route to gradient labs (0-100)
+    * @param {string} options.identifier - Unique user identifier for consistent routing
+    * @returns {Object} Result of the routing decision
+    */
     init: function (options = {}) {
       try {
         // Validate required parameters
@@ -68,12 +68,12 @@
     },
 
     /**
-         * Creates a persistent user identifier that works across sessions and browser tabs
-         * Uses Snowplow ID if available, or creates a persistent ID in localStorage
-         *
-         * @returns {string} A consistent user identifier
-         */
-    getPersistentUserId: function() {
+    * Creates a persistent user identifier that works across sessions and browser tabs
+    * Uses Snowplow ID if available, or creates a persistent ID in localStorage
+    *
+    * @returns {string} A consistent user identifier
+    */
+    getPersistentUserId: function () {
       const STORAGE_KEY = 'zendesk_router_user_id';
 
       // First, check if we have a stored ID
@@ -102,12 +102,12 @@
     },
 
     /**
-         * Generate a UUID v4
-         * @returns {string} A random UUID
-         * @private
-         */
-    _generateUUID: function() {
-      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    * Generate a UUID v4
+    * @returns {string} A random UUID
+    * @private
+    */
+    _generateUUID: function () {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
         const r = (Math.random() * 16) | 0;
         const v = c === 'x' ? r : (r & 0x3) | 0x8;
         return v.toString(16);
@@ -115,11 +115,11 @@
     },
 
     /**
-         * Fall back to default widget
-         * @param {string} defaultKey - Default widget key
-         * @returns {Object} Result of the fallback
-         * @private
-         */
+    * Fall back to default widget
+    * @param {string} defaultKey - Default widget key
+    * @returns {Object} Result of the fallback
+    * @private
+    */
     _fallbackToDefault: function (defaultKey) {
       if (defaultKey) {
         this._loadZendeskWidget(defaultKey);
@@ -139,11 +139,11 @@
     },
 
     /**
-         * Generate a deterministic hash value between 0-100 from a string
-         * @param {string} identifier - String to hash
-         * @returns {number} - Value between 0-100
-         * @private
-         */
+    * Generate a deterministic hash value between 0-100 from a string
+    * @param {string} identifier - String to hash
+    * @returns {number} - Value between 0-100
+    * @private
+    */
     _hashIdentifier: function (identifier) {
       let hash = 0;
 
@@ -158,10 +158,10 @@
     },
 
     /**
-         * Load the Zendesk widget with the given key
-         * @param {string} key - Zendesk widget key
-         * @private
-         */
+    * Load the Zendesk widget with the given key
+    * @param {string} key - Zendesk widget key
+    * @private
+    */
     _loadZendeskWidget: function (key) {
       const script = document.createElement('script');
       script.id = 'ze-snippet';

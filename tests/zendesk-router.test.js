@@ -33,7 +33,7 @@ describe('ZendeskRouter', () => {
     delete window.ZendeskRouter;
 
     // Load the router
-    require('../src/zendesk-router');
+    require('../zendesk-router');
   });
 
   afterEach(() => {

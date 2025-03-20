@@ -1,22 +1,25 @@
-# Zendesk Router for Gradient Labs
+# 🤖 Zendesk Router for Gradient Labs
 
-A route a percentage of your customer support inquiries through Gradient Labs.
+➡️ **[Script: zendesk-router.js](./zendesk-router.js)**
 
-## Installation
+Route a percentage of your customer support inquiries through Gradient Labs.
 
-### 1: Widget Keys
+## 🔧 Installation
 
-Note the keys of your Zendesk Chat widgets, eg for the snippet:
+### 1: Widget Keys 🔑
+
+Note the keys of your Zendesk Chat widgets, eg. for the snippet:
 
 ```html
 <!-- Start of Zendesk Widget script -->
-<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=abc12673-labd-43a6-842g-fbcf60639b06"></script>
+<script id="ze-snippet"
+        src="https://static.zdassets.com/ekr/snippet.js?key=abc12673-labd-43a6-842g-fbcf60639b06"></script>
 <!-- End of Zendesk Widget script -->
 ```
 
 The key is the string after `?key=` (e.g., `abc12673-labd-43a6-842g-fbcf60639b06`).
 
-### 2: Installation
+### 2: Installation ⚙️
 
 **Option A: Direct Script Installation**
 
@@ -29,14 +32,13 @@ Replace your current Zendesk widget code with:
 </script>
 
 <script>
-    // Initialize the router
     ZendeskRouter.init({
         keys: {
             default: 'YOUR_DEFAULT_KEY',                        // Your regular widget key
             gradientLabs: 'GRADIENT_LABS_KEY'                   // Gradient Labs widget key
         },
         percentageForGradientLabs: 30,                          // Send 30% of users to Gradient Labs
-        identifier: ZendeskRouter.getPersistentUserId()         // Replace with actual user identifier
+        identifier: ZendeskRouter.getPersistentUserId()
     });
 </script>
 ```
@@ -51,21 +53,18 @@ Replace your current Zendesk widget code with:
 <script src="path/to/zendesk-router.js"></script>
 
 <script>
-    // Initialize the router
     ZendeskRouter.init({
         keys: {
             default: 'YOUR_DEFAULT_KEY',                         // Your regular widget key
             gradientLabs: 'GRADIENT_LABS_KEY'                    // Gradient Labs widget key
         },
         percentageForGradientLabs: 30,                         // Send 30% of users to Gradient Labs
-        identifier: ZendeskRouter.getPersistentUserId()        // Replace with actual user identifier
+        identifier: ZendeskRouter.getPersistentUserId()
     });
 </script>
 ```
 
-
-
-## What It Does
+## 🔍 What It Does
 
 This tool allows you to split your customer support traffic between your standard Zendesk support and Gradient Labs'
 Zendesk support. It:
@@ -74,7 +73,7 @@ Zendesk support. It:
 - Keeps the rest of your inquiries with your default support system
 - Ensures each user consistently sees the same support experience
 
-## How It Works
+## ⚙️ How It Works
 
 When a user visits your website:
 
@@ -84,4 +83,3 @@ When a user visits your website:
     - If the value is below your percentage, the user sees the Gradient Labs widget
     - If the value is at or above your percentage, the user sees your default widget
 4. The script then loads the appropriate Zendesk widget automatically
-

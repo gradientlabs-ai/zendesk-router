@@ -2,10 +2,10 @@
   "name": "zendesk-router",
   "version": "1.0.0",
   "description": "A simple JavaScript router for Zendesk Help Center",
-  "main": "src/zendesk-router.js",
+  "main": "zendesk-router.js",
   "scripts": {
     "test": "jest",
-    "lint": "eslint src"
+    "lint": "eslint ."
   },
   "keywords": ["zendesk", "router", "help-center"],
   "author": "",
